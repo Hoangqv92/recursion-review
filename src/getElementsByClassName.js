@@ -13,7 +13,6 @@ var getElementsByClassName = function(className) {
   var getNode = function(element) {
     if (element.classList && element.classList.contains(className)) {
       result.push(element);
-      console.log(element.classList);
     }
     if (element.childNodes) {
       for (var i = 0; i < element.childNodes.length; i++) {

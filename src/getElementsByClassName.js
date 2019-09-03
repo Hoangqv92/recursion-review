@@ -4,7 +4,23 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
+//Implement getElementsByClassName with your own function in src/getElementsByClassName.js, and make the specs pass, fixing them as necessary.
+//You should use document.body, element.childNodes, and element.classList
+var getElementsByClassName = function(className) {
   // your code here
+  var result = [];
+  var body = document.body;
+  var getNode = function(element) {
+    if (element.classList && element.classList.contains(className)) {
+      result.push(element);
+      console.log(element.classList);
+    }
+    if (element.childNodes) {
+      for (var i = 0; i < element.childNodes.length; i++) {
+        getNode(element.childNodes[i]);
+      }
+    }
+  };
+  getNode(body);
+  return result;
 };
